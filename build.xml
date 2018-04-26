@@ -1,11 +1,15 @@
 <project name="My Project" default="help" basedir=".">
   <!-- Define the properties used by the build -->
+  <property file="properties/${env.NAME}/build.properties" />
   <property name="app.name"      value="hello"/>
-  <property name="tcserver.home" value="/home/jenkins/tomcat9" />
+  <property name="tcserver.home" value="${tomcat.base}" />
   <property name="work.home"    value="${basedir}/work"/>
   <property name="dist.home"     value="${basedir}/dist"/>
   <property name="src.home"      value="${basedir}/src"/>
   <property name="web.home"      value="${basedir}/web"/>
+  <property name="message_value" value="${echo.msg}" />
+
+  <echo> you are using environment: ${message_value} </echo>
 
   <target name="help">
     <echo>You can use the following targets:</echo>
